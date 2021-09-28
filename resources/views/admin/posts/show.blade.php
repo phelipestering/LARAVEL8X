@@ -1,16 +1,23 @@
-<h1>Detalhes do Post {{ $post ->title }}</h1>
+@extends('admin.layouts.app')
 
-<ul>
-    <li><strong>Titulo: </strong>{{ $post ->title}}</li>
-    <li><strong>Conteudo: </strong>{{ $post ->content}}</li>
-</ul>
+@section('title', 'Detalhes do Post')
 
-<form action="{{route ('posts.destroy',$post->id)}}" method="post">
+@section('content')
+    <h1>Detalhes do Post {{ $post ->title }}</h1>
 
-    @csrf
+    <ul>
+        <li><strong>Titulo: </strong>{{ $post ->title}}</li>
+        <li><strong>Conteudo: </strong>{{ $post ->content}}</li>
+    </ul>
 
-    <input type="hidden" name="_method" value="DELETE">
+    <form action="{{route ('posts.destroy',$post->id)}}" method="post">
 
-    <button type="submit">Deletar o Post {{ $post ->title}}</button>
+        @csrf
 
-</form>
+        <input type="hidden" name="_method" value="DELETE">
+
+        <button type="submit">Deletar o Post {{ $post ->title}}</button>
+
+    </form>
+
+@endsection
