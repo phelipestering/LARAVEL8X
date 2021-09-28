@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use phpDocumentor\Reflection\Types\Nullable;
 
 class CreatePostsTable extends Migration
 {
@@ -16,7 +17,8 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title',160);
-            $table->text('content');
+            $table->string('image');
+            $table->text('content')->nullable();
             $table->timestamps();
         });
     }
